@@ -20,7 +20,7 @@
       <ol>
         <li>
           Download the code for
-          <a href="https://github.com/jkup/learn-a11y">this repo</a>.
+          <a href="https://github.com/jkup/learn-a11y" role="button">this repo</a>.
         </li>
         <li>Open `exercises/2.html</li>
         <li>
@@ -29,13 +29,13 @@
         </li>
       </ol>
       <form>
-        <p>First Name:</p>
-        <input type="text" />
-        <p>Last Name:</p>
-        <input type="text" />
-        <div class="button">Submit</div>
+        <label for="first_name">First Name:</label>
+        <input id="first_name" type="text" />
+        <label for="last_name">Last Name:</label>
+        <input id="last_name" type="text" />
+        <button class="button">Submit</button>
       </form>
-      <img src="../static/kitten.jpeg" />
+      <img src="../static/kitten.jpeg" alt="A cute kitten" />
     </div>
   </body>
 </html>

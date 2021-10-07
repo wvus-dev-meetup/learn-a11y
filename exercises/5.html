@@ -6,9 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Screen Readers</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <style></style>
+    <style>
+      @media (prefers-color-scheme: dark) {
+        .wrapper {
+          background-color: black;
+          color: white;
+        }
+      }
+      
+      @media (prefers-color-scheme: light) {
+        .wrapper {
+          background-color: white;
+          color: black;
+        }
+      }
+
+      .wrapperDark, .wrapperDark ul li a {
+        background-color: black;
+        color: white;
+      }
+      </style>
   </head>
-  <body class="main">
+  <body class="wrapper">
     <header>
       <ul>
         <li><a href="../visual-considerations/index.html">&larr; back</a></li>
@@ -21,10 +40,25 @@
         the background to either black or white. For extra credit, allow the
         checkbox below to override that setting!
       </p>
-      <label>
+      <label for="input">
         Enable Dark Mode
-        <input id="input" type="checkbox" />
+        <input id="input" type="checkbox" onclick="toggleDarkMode()" />
       </label>
     </div>
+
+    <script>
+      function toggleDarkMode(e) {
+        const darkModeCheckbox = document.getElementById("input");
+        let isDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+console.log(darkModeCheckbox.checked)
+        if (isDarkTheme || darkModeCheckbox.checked) {
+          document.body.classList.add("wrapperDark");
+          isDarkTheme = false;
+        } else {
+          document.body.classList.remove("wrapperDark");
+          isDarkTheme = true;
+        }
+      }
+    </script>
   </body>
 </html>
